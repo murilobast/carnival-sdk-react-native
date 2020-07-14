@@ -383,6 +383,15 @@ RCT_EXPORT_METHOD(registerForPushNotifications) {
     }];
 }
 
+// Push Enable | Disable
+RCT_EXPORT_METHOD(setInAppNotificationsEnabled:(BOOL)enabled) {
+  if (enabled) {
+    [self.sailthruMobile setInAppNotificationsEnabled:YES];
+  } else {
+    [self.sailthruMobile setInAppNotificationsEnabled:NO];
+  }
+}
+
 RCT_EXPORT_METHOD(clearDevice:(NSInteger)options resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     [self.sailthruMobile clearDeviceData:(STMDeviceDataType)options withResponse:^(NSError * _Nullable error) {
         if (error) {

@@ -128,6 +128,12 @@ public class RNSailthruMobileModule extends ReactContextBaseJavaModule implement
         // noop. It's here to share signatures with iOS.
     }
 
+    // Push Enable | Disable
+    @ReactMethod
+    public void setInAppNotificationsEnabled(boolean enabled) {
+        sailthruMobile.setInAppNotificationsEnabled(enabled);
+    }
+    
     @ReactMethod
     public void updateLocation(double latitude, double longitude) {
         Location location = new Location("React-Native");
